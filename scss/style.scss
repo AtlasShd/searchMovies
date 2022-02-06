@@ -47,7 +47,7 @@ html {
 }
 
 .container {
-	max-width: 1440px;
+	max-width: 100%;
 	height: 100%;
 	margin: 0 auto;
 	padding: 100px 20px 0;
@@ -178,23 +178,29 @@ span {
 
 .core {
 
-	&__container {}
-
-	&__body {
-		height: 100vh;
+	&__container {
+		padding-bottom: 30px;
 	}
 
-	&__core__card {}
+	&__body {
+		display: grid;
+		column-gap: 35px;
+		row-gap: 60px;
+		grid-template-columns: repeat(auto-fit, 300px);
+		justify-content: space-evenly;
+	}
 }
 
 .card {
-	height: 500px;
-	width: 300px;
+	height: 575px;
+	width: 100%;
 	background: #32354e;
-	box-shadow: 0 0 20px 0 #000;
+	box-shadow: 0 0 15px 0 #000;
+	border-radius: 5px;
+	overflow: hidden;
 
 	&__wallpaper {
-		height: 80%;
+		height: 450px;
 		width: 100%;
 		overflow: hidden;
 	}
@@ -212,6 +218,7 @@ span {
 
 	&__title {
 		flex: 1 1 80%;
+		padding-right: 10px;
 	}
 
 	&__score {

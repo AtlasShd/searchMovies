@@ -135,7 +135,7 @@ html {
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 100%;
   height: 100%;
   margin: 0 auto;
   padding: 100px 20px 0;
@@ -264,20 +264,35 @@ span {
   width: 100%;
 }
 
+.core__container {
+  padding-bottom: 30px;
+}
+
 .core__body {
-  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -webkit-column-gap: 35px;
+          column-gap: 35px;
+  row-gap: 60px;
+  -ms-grid-columns: (300px)[auto-fit];
+      grid-template-columns: repeat(auto-fit, 300px);
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .card {
-  height: 500px;
-  width: 300px;
+  height: 575px;
+  width: 100%;
   background: #32354e;
-  -webkit-box-shadow: 0 0 20px 0 #000;
-          box-shadow: 0 0 20px 0 #000;
+  -webkit-box-shadow: 0 0 15px 0 #000;
+          box-shadow: 0 0 15px 0 #000;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .card__wallpaper {
-  height: 80%;
+  height: 450px;
   width: 100%;
   overflow: hidden;
 }
@@ -300,6 +315,7 @@ span {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 80%;
           flex: 1 1 80%;
+  padding-right: 10px;
 }
 
 .card__score {
