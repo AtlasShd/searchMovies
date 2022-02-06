@@ -296,7 +296,7 @@ span {
 
 		&__title {
 			font-size: 36px;
-			line-height: 40px;
+			line-height: 48px;
 			letter-spacing: 2px;
 			margin-left: -2px;
 		}
@@ -327,7 +327,7 @@ span {
 
 		&__title {
 			font-size: 28px;
-			line-height: 32px;
+			line-height: 36px;
 			margin-left: -1px;
 		}
 
@@ -337,19 +337,13 @@ span {
 		}
 
 		&__subtitle {
-			font-size: 14px;
-			letter-spacing: 1px;
-			line-height: 24px;
+			font-size: 15px;
+			line-height: 26px;
 		}
 
 		&__footer {
-			font-size: 18px;
-			line-height: 22px;
-		}
-
-		&__average {
-			padding: 4px;
-			border-radius: 6px;
+			font-size: 20;
+			line-height: 24px;
 		}
 
 	}

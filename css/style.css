@@ -393,7 +393,7 @@ span {
   }
   .welcome__title {
     font-size: 36px;
-    line-height: 40px;
+    line-height: 48px;
     letter-spacing: 2px;
     margin-left: -2px;
   }
@@ -419,7 +419,7 @@ span {
 @media (max-width: 420px) {
   .welcome__title {
     font-size: 28px;
-    line-height: 32px;
+    line-height: 36px;
     margin-left: -1px;
   }
   .welcome__year {
@@ -427,17 +427,12 @@ span {
     line-height: 24px;
   }
   .welcome__subtitle {
-    font-size: 14px;
-    letter-spacing: 1px;
-    line-height: 24px;
+    font-size: 15px;
+    line-height: 26px;
   }
   .welcome__footer {
-    font-size: 18px;
-    line-height: 22px;
-  }
-  .welcome__average {
-    padding: 4px;
-    border-radius: 6px;
+    font-size: 20;
+    line-height: 24px;
   }
 }
 
