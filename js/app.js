@@ -8,6 +8,7 @@ class card {
 		this.title = title;
 		this.average = average;
 		this.reduceNumber(count);
+		this.color = this.averageColor();
 	}
 
 	reduceNumber(num) {
@@ -23,7 +24,13 @@ class card {
 	}
 
 	averageColor() {
-		
+		if (this.average >= 8) {
+			return 'olivedrab';
+		} else if (this.average < 6) {
+			return 'firebrick';
+		} else {
+			return 'gold';
+		}
 	}
 
 	render() {
@@ -39,7 +46,7 @@ class card {
 					${this.title}
 				</div>
 				<div class="card__score">
-		 			<div class="card__average">
+		 			<div class="card__average" style="color: ${this.color}">
 						${this.average}
 					</div>
 					<div class="card__count">
