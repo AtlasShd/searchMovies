@@ -67,7 +67,7 @@ function cardsCount(query = '') {
 	const number = Math.floor(document.documentElement.clientWidth / 335) * 4; //335 = card width + column gap
 	let tempNumber;
 	for (let i = 0; i < number / 20; i++) {
-		const url = switchPageUrl(i, query);
+		const url = changerUrl(i, query);
 		fetch(url)
 			.then(res => res.json())
 			.then(data => {
@@ -77,7 +77,7 @@ function cardsCount(query = '') {
 	}
 }
 
-function switchPageUrl(i, query) {
+function changerUrl(i, query) {
 	if (query) {
 		return `https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query=${query}&page=${i + 1}`;
 	}
@@ -94,14 +94,13 @@ function createCards(data, temp) {
 cardsCount();
 
 //search movies
-
 document.querySelector('.header__search').addEventListener('submit', (e) => {
 	e.preventDefault();
-	console.log(document.querySelector('.header__input').value);
 	coreBody.innerHTML = '';
 	cardsCount(document.querySelector('.header__input').value);
 });
 
+//welcome section
 
 
 // disabled transition bedore loading page
