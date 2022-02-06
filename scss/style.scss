@@ -168,7 +168,6 @@ span {
 
 	&__wallpaper {
 		position: relative;
-		background: url('../assets/img/testImage.jpg') 50% 50% / cover no-repeat;
 		height: 100vh;
 		width: 100%;
 		z-index: 1;
@@ -197,6 +196,10 @@ span {
 	}
 
 	&__body {
+		height: 100%;
+	}
+
+	&__main {
 		position: relative;
 		z-index: 3;
 	}
