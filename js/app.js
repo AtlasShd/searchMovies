@@ -1,7 +1,9 @@
 'use strict';
 
 const coreBody = document.querySelector('.core__body'),
-	welcomeWallpaper = document.querySelector('.welcome__wallpaper');
+	welcomeWallpaper = document.querySelector('.welcome__wallpaper'),
+	core = document.querySelector('.core'),
+	header = document.querySelector('.header');
 
 //add cards to page
 class card {
@@ -123,17 +125,13 @@ let welcomeIsTrue = true;
 
 //get data from API
 function cardsCount(query = '') {
-	const number = Math.floor(document.documentElement.clientWidth / 335) * 4; //335 = card width + column gap
+	const number = (Math.floor(document.documentElement.clientWidth / 335) * 4) + 1; //335 = card width + column gap; '+1' because we lost one card in welcome section
 	let tempNumber;
 	for (let i = 0; i < number / 20; i++) {
 		const url = changerUrl(i, query);
 		fetch(url)
 			.then(res => res.json())
 			.then(data => {
-				if (welcomeIsTrue) {
-					createWelcome(data);
-					welcomeIsTrue = false;
-				}
 				tempNumber = ((number - (20 * i)) >= 20) ? 20 : number % 20;
 				createCards(data, tempNumber);
 			});
@@ -150,7 +148,12 @@ function changerUrl(i, query) {
 function createCards(data, temp) {
 	for (let i = 0; i < temp; i++) {
 		const movie = data.results[i];
-		new card(movie.poster_path, movie.title, movie.vote_average, movie.vote_count).render();
+		if (welcomeIsTrue) {
+			createWelcome(data);
+			welcomeIsTrue = false;
+		} else {
+			new card(movie.poster_path, movie.title, movie.vote_average, movie.vote_count).render();
+		}
 	}
 }
 
@@ -174,8 +177,18 @@ document.querySelector('.header__search').addEventListener('submit', (e) => {
 	cardsCount(document.querySelector('.header__input').value);
 });
 
-//welcome section
+//sticky header
+function checkScroll(e) {
+	if (core.getBoundingClientRect().top <= 0) {
+		header.style.position = 'absolute';
+		header.style.top = window.scrollY + core.getBoundingClientRect().top + 'px';
+	} else {
+		header.style.position = 'fixed';
+		header.style.top = '0';
+	}
+}
 
+window.addEventListener('scroll', checkScroll);
 
 // disabled transition bedore loading page
 window.addEventListener('load', () => {
