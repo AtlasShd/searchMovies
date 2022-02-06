@@ -254,6 +254,12 @@ span {
   background: none;
 }
 
+@media (max-width: 768px) {
+  .header__search {
+    width: 100%;
+  }
+}
+
 .welcome__container {
   padding: 0;
 }
@@ -269,7 +275,7 @@ span {
 .welcome__wallpaper::before {
   content: '';
   position: absolute;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.66);
   z-index: 2;
   top: 0;
   left: 0;
@@ -333,7 +339,6 @@ span {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: #2f2a3f;
   padding: 10px;
   border-radius: 10px;
   margin-right: 8%;
@@ -351,7 +356,93 @@ span {
           align-items: center;
 }
 
+@media (max-width: 1366px) {
+  .welcome__header {
+    font-size: 36px;
+    line-height: 110px;
+  }
+  .welcome__title {
+    font-size: 52px;
+    line-height: 65px;
+    letter-spacing: 3px;
+    margin-left: -3px;
+  }
+  .welcome__year {
+    font-size: 16px;
+    line-height: 32px;
+  }
+  .welcome__subtitle {
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 32px;
+  }
+  .welcome__footer {
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .welcome__average {
+    padding: 6px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome__header {
+    font-size: 2px;
+    opacity: 0;
+  }
+  .welcome__title {
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: 2px;
+    margin-left: -2px;
+  }
+  .welcome__year {
+    font-size: 14px;
+    line-height: 28px;
+  }
+  .welcome__subtitle {
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 28px;
+  }
+  .welcome__footer {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .welcome__average {
+    padding: 5px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 420px) {
+  .welcome__title {
+    font-size: 28px;
+    line-height: 32px;
+    margin-left: -1px;
+  }
+  .welcome__year {
+    font-size: 12px;
+    line-height: 24px;
+  }
+  .welcome__subtitle {
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 24px;
+  }
+  .welcome__footer {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .welcome__average {
+    padding: 4px;
+    border-radius: 6px;
+  }
+}
+
 .core__container {
+  padding-top: 100px;
   padding-bottom: 30px;
 }
 

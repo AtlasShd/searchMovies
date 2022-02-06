@@ -139,7 +139,6 @@ span {
 		width: 250px;
 		display: flex;
 		background: white;
-		// margin-right: 20px;
 	}
 
 	&__input {
@@ -152,6 +151,12 @@ span {
 		width: 32px;
 		height: 100%;
 		background: none;
+	}
+
+	@media(max-width: 768px) {
+		&__search {
+			width: 100%;
+		}
 	}
 }
 
@@ -176,7 +181,7 @@ span {
 		&::before {
 			content: '';
 			position: absolute;
-			background: rgba(0, 0, 0, 0.5);
+			background: rgba(0, 0, 0, 0.66);
 			z-index: 2;
 			top: 0;
 			left: 0;
@@ -237,7 +242,6 @@ span {
 	&__average {
 		display: flex;
 		justify-content: center;
-		background: #2f2a3f;
 		padding: 10px;
 		border-radius: 10px;
 		margin-right: 8%;
@@ -248,6 +252,107 @@ span {
 		justify-content: center;
 		align-items: center;
 	}
+
+	@media(max-width: 1366px) {
+		&__header {
+			font-size: 36px;
+			line-height: 110px;
+		}
+
+		&__title {
+			font-size: 52px;
+			line-height: 65px;
+			letter-spacing: 3px;
+			margin-left: -3px;
+		}
+
+		&__year {
+			font-size: 16px;
+			line-height: 32px;
+		}
+
+		&__subtitle {
+			font-size: 20px;
+			letter-spacing: 1px;
+			line-height: 32px;
+		}
+
+		&__footer {
+			font-size: 26px;
+			line-height: 32px;
+		}
+
+		&__average {
+			padding: 6px;
+			border-radius: 8px;
+		}
+	}
+
+	@media(max-width: 768px) {
+		&__header {
+			font-size: 2px;
+			opacity: 0;
+		}
+
+		&__title {
+			font-size: 36px;
+			line-height: 40px;
+			letter-spacing: 2px;
+			margin-left: -2px;
+		}
+
+		&__year {
+			font-size: 14px;
+			line-height: 28px;
+		}
+
+		&__subtitle {
+			font-size: 16px;
+			letter-spacing: 1px;
+			line-height: 28px;
+		}
+
+		&__footer {
+			font-size: 24px;
+			line-height: 28px;
+		}
+
+		&__average {
+			padding: 5px;
+			border-radius: 8px;
+		}
+	}
+
+	@media(max-width: 420px) {
+
+		&__title {
+			font-size: 28px;
+			line-height: 32px;
+			margin-left: -1px;
+		}
+
+		&__year {
+			font-size: 12px;
+			line-height: 24px;
+		}
+
+		&__subtitle {
+			font-size: 14px;
+			letter-spacing: 1px;
+			line-height: 24px;
+		}
+
+		&__footer {
+			font-size: 18px;
+			line-height: 22px;
+		}
+
+		&__average {
+			padding: 4px;
+			border-radius: 6px;
+		}
+
+	}
 }
 
 //welcome
@@ -257,6 +362,7 @@ span {
 .core {
 
 	&__container {
+		padding-top: 100px;
 		padding-bottom: 30px;
 	}
 
