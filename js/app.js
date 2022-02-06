@@ -1,5 +1,7 @@
 'use strict';
 
+const coreBody = document.querySelector('.core__body');
+
 //add cards to page
 class card {
 
@@ -56,18 +58,16 @@ class card {
 			</div>
 		`;
 
-		document.querySelector('.core__body').append(element);
+		coreBody.append(element);
 	}
 }
 
-
 //get data from API
-function cardsCount() {
+function cardsCount(query = '') {
 	const number = Math.floor(document.documentElement.clientWidth / 335) * 4; //335 = card width + column gap
 	let tempNumber;
 	for (let i = 0; i < number / 20; i++) {
-		const url = `
-		https://api.themoviedb.org/3/discover/movie?page=${i + 1}&sort_by=popularity.desc&api_key=4aff51c20dec81f753b4cac50ca60b49`;
+		const url = switchPageUrl(i, query);
 		fetch(url)
 			.then(res => res.json())
 			.then(data => {
@@ -75,6 +75,13 @@ function cardsCount() {
 				createCards(data, tempNumber);
 			});
 	}
+}
+
+function switchPageUrl(i, query) {
+	if (query) {
+		return `https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query=${query}&page=${i + 1}`;
+	}
+	return `https://api.themoviedb.org/3/discover/movie?page=${i + 1}&sort_by=popularity.desc&api_key=4aff51c20dec81f753b4cac50ca60b49`;
 }
 
 function createCards(data, temp) {
@@ -85,6 +92,17 @@ function createCards(data, temp) {
 }
 
 cardsCount();
+
+//search movies
+
+document.querySelector('.header__search').addEventListener('submit', (e) => {
+	e.preventDefault();
+	console.log(document.querySelector('.header__input').value);
+	coreBody.innerHTML = '';
+	cardsCount(document.querySelector('.header__input').value);
+});
+
+
 
 // disabled transition bedore loading page
 window.addEventListener('load', () => {
