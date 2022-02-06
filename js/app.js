@@ -46,6 +46,9 @@ class card {
 		element.innerHTML = `
 			<div class="card__wallpaper">
 				<img class="card__img" src="https://www.themoviedb.org/t/p/w600_and_h900_face${this.src}" alt="${this.title}" loading="lazy">
+				<div class="card__text">
+					${this.overview}
+				</div>
 			</div>
 			<div class="card__footer">
 				<div class="card__title">
@@ -95,25 +98,25 @@ class welcome {
 
 		element.classList.add('welcome__body');
 		element.innerHTML = `
-		<div class="welcome__main">
-			<div class="welcome__title">
-			${this.title}
+			<div class="welcome__main">
+				<div class="welcome__title">
+					${this.title}
+				</div>
+				<div class="welcome__year">
+					© ${this.year}
+				</div>
+				<div class="welcome__subtitle">
+					${this.overview}
+				</div>
 			</div>
-			<div class="welcome__year">
-				© ${this.year}
+			<div class="welcome__footer">
+				<div class="welcome__average" style="background: ${this.color}">
+					${this.average}
+				</div>
+				<div class="welcome__count">
+					${this.count}
+				</div>
 			</div>
-			<div class="welcome__subtitle">
-			${this.overview}
-			</div>
-		</div>
-		<div class="welcome__footer">
-			<div class="welcome__average" style="background: ${this.color}">
-			${this.average}
-			</div>
-			<div class="welcome__count">
-			${this.count}
-			</div>
-		</div>
 		`;
 
 		welcomeWallpaper.append(element);
@@ -152,7 +155,7 @@ function createCards(data, temp) {
 			createWelcome(data);
 			welcomeIsTrue = false;
 		} else {
-			new card(movie.poster_path, movie.title, movie.vote_average, movie.vote_count).render();
+			new card(movie.poster_path, movie.title, movie.vote_average, movie.vote_count, movie.overview).render();
 		}
 	}
 }

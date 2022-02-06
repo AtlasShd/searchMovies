@@ -36,14 +36,13 @@ html {
 	transition: background 0.5s ease-in-out 0s;
 }
 
-.header {
-	// background: #085467;
+.welcome,
+.core {
+	background: #2d3550;
 }
 
-.welcome,
-.core,
 .footer {
-	background: #2d3550;
+	background: #242a3f;
 }
 
 .container {
@@ -371,23 +370,47 @@ span {
 }
 
 .card {
+	position: relative;
 	height: 575px;
 	width: 100%;
 	background: #32354e;
 	box-shadow: 0 0 15px 0 #000;
-	border-radius: 5px;
 	overflow: hidden;
+	border-radius: 5px;
+	transform-style: preserve-3d;
+
+	&:hover &__wallpaper {
+		transform: rotateY(180deg)
+	}
 
 	&__wallpaper {
+		position: relative;
 		height: 450px;
 		width: 100%;
+		transition: transform 0.33s ease-in-out 0s;
+		transform-style: preserve-3d;
+	}
+
+	&__text {
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: rotateY(180deg);
+		background: #20263b;
+		height: 450px;
+		padding: 15px;
 		overflow: hidden;
+		font-size: 16px;
+		line-height: 24px;
+		text-align: justify;
+		cursor: default;
 	}
 
 	&__img {
 		height: 100%;
 		width: 100%;
 		object-fit: cover;
+		backface-visibility: hidden;
 	}
 
 	&__footer {
