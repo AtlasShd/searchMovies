@@ -124,21 +124,34 @@ class welcome {
 }
 
 let welcomeIsTrue = true;
+let numbersScroll = 1;
+let pageAPI = 0;
+let inputSearch = '';
 
 
-//get data from API
+//get data from API 
+// function cardsCount(query = '') { //this is beautiful cards show, but not practical for infinity show
+// 	const number = (Math.floor(document.documentElement.clientWidth / 335) * 4) + numbersScroll; //335 = card width + column gap; '+1' because we lost one card in welcome section
+// 	let tempNumber;
+// 	for (let i = 0; i < number / 20; i++) {
+// 		const url = changerUrl(i, query);
+// 		fetch(url)
+// 			.then(res => res.json())
+// 			.then(data => {
+// 				tempNumber = ((number - (20 * i)) >= 20) ? 20 : number % 20;
+// 				createCards(data, tempNumber);
+// 			});
+// 	}
+// }
+
 function cardsCount(query = '') {
-	const number = (Math.floor(document.documentElement.clientWidth / 335) * 4) + 1; //335 = card width + column gap; '+1' because we lost one card in welcome section
-	let tempNumber;
-	for (let i = 0; i < number / 20; i++) {
-		const url = changerUrl(i, query);
-		fetch(url)
-			.then(res => res.json())
-			.then(data => {
-				tempNumber = ((number - (20 * i)) >= 20) ? 20 : number % 20;
-				createCards(data, tempNumber);
-			});
-	}
+	const url = changerUrl(pageAPI, query);
+	pageAPI++;
+	fetch(url)
+		.then(res => res.json())
+		.then(data => {
+			createCards(data, 20);
+		});
 }
 
 function changerUrl(i, query) {
@@ -171,13 +184,15 @@ cardsCount();
 document.querySelector('.header__search').addEventListener('submit', (e) => {
 	e.preventDefault();
 	welcomeIsTrue = true;
+	pageAPI = 0;
 	welcomeWallpaper.innerHTML = `
 		<div class="welcome__header">
 			<a href="#core">THE MOST SUITABLE</a>
  		</div>
 	`;
 	coreBody.innerHTML = '';
-	cardsCount(document.querySelector('.header__input').value);
+	inputSearch = document.querySelector('.header__input').value;
+	cardsCount(inputSearch);
 });
 
 //sticky header
@@ -192,6 +207,23 @@ function checkScroll(e) {
 }
 
 window.addEventListener('scroll', checkScroll);
+
+//infinity movies
+let nextMovieIsTrue = true;
+function nextMovies() {
+	if (window.scrollY >= document.documentElement.scrollHeight - (2 * document.documentElement.clientHeight)) {
+		if (nextMovieIsTrue) {
+			cardsCount(inputSearch ? inputSearch : '');
+			nextMovieIsTrue = false;
+			setTimeout(() => {
+				nextMovieIsTrue = true;
+			}, 500);
+		}
+	}
+}
+
+
+window.addEventListener('scroll', nextMovies);
 
 // disabled transition bedore loading page
 window.addEventListener('load', () => {
