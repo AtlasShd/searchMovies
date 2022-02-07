@@ -9,10 +9,10 @@ const coreBody = document.querySelector('.core__body'),
 class card {
 
 	constructor(src, title, average, count, overview) {
-		this.src = `https://www.themoviedb.org/t/p/w600_and_h900_face${src}`;
+		this.src = src ? `https://www.themoviedb.org/t/p/original${src}` : '../assets/img/notFound.png';
 		this.title = title;
 		this.average = average;
-		this.overview = overview;
+		this.overview = overview ? overview : 'Bla, bla, bla! Bla, bla, blaaa... I am so sorry overview not found... :((((';
 		this.reduceNumber(count);
 		this.color = this.averageColor();
 	}
@@ -72,12 +72,12 @@ class card {
 class welcome {
 
 	constructor(src, title, average, count, year, overview) {
-		this.src = `https://www.themoviedb.org/t/p/original${src}`;
+		this.src = src ? `https://www.themoviedb.org/t/p/original${src}` : '../assets/img/welcomeNotFound.png';
 		this.title = title;
 		this.average = average;
 		this.year = String(year).slice(0, 4);
 		this.count = count;
-		this.overview = overview;
+		this.overview = overview ? overview : 'Bla, bla, bla! Bla, bla, blaaa... I am so sorry overview not found... :((((';
 		this.color = this.averageColor();
 	}
 
@@ -211,7 +211,7 @@ window.addEventListener('scroll', checkScroll);
 //infinity movies
 let nextMovieIsTrue = true;
 function nextMovies() {
-	if (window.scrollY >= document.documentElement.scrollHeight - (2 * document.documentElement.clientHeight)) {
+	if (window.scrollY >= document.documentElement.scrollHeight - (3 * document.documentElement.clientHeight)) {
 		if (nextMovieIsTrue) {
 			cardsCount(inputSearch ? inputSearch : '');
 			nextMovieIsTrue = false;
