@@ -223,7 +223,6 @@ span {
 .header__container {
   height: 96px;
   padding: 0 20px;
-  padding-left: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -467,41 +466,33 @@ span {
           box-shadow: 0 0 15px 0 #000;
   overflow: hidden;
   border-radius: 5px;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
 }
 
-.card:hover .card__wallpaper {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
+.card:hover .card__text {
+  opacity: 1;
 }
 
 .card__wallpaper {
   position: relative;
   height: 450px;
   width: 100%;
-  -webkit-transition: -webkit-transform 0.33s ease-in-out 0s;
-  transition: -webkit-transform 0.33s ease-in-out 0s;
-  transition: transform 0.33s ease-in-out 0s;
-  transition: transform 0.33s ease-in-out 0s, -webkit-transform 0.33s ease-in-out 0s;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
 }
 
 .card__text {
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-  background: #20263b;
+  background: rgba(32, 38, 59, 0.85);
   height: 450px;
   padding: 15px;
-  overflow: hidden;
+  width: 100%;
   font-size: 16px;
   line-height: 24px;
   text-align: justify;
-  cursor: default;
+  -webkit-transition: opacity 0.5s ease-in-out 0s;
+  transition: opacity 0.5s ease-in-out 0s;
+  opacity: 0;
+  overflow: hidden;
 }
 
 .card__img {
@@ -509,8 +500,6 @@ span {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
 }
 
 .card__footer {
