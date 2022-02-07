@@ -9,7 +9,7 @@ const coreBody = document.querySelector('.core__body'),
 class card {
 
 	constructor(src, title, average, count, overview) {
-		this.src = src;
+		this.src = `https://www.themoviedb.org/t/p/w600_and_h900_face${src}`;
 		this.title = title;
 		this.average = average;
 		this.overview = overview;
@@ -45,7 +45,7 @@ class card {
 		element.classList.add('card');
 		element.innerHTML = `
 			<div class="card__wallpaper">
-				<img class="card__img" src="https://www.themoviedb.org/t/p/w600_and_h900_face${this.src}" alt="${this.title}" loading="lazy">
+				<img class="card__img" src="${this.src}" alt="${this.title}" loading="lazy">
 				<div class="card__text">
 					${this.overview}
 				</div>
@@ -72,7 +72,7 @@ class card {
 class welcome {
 
 	constructor(src, title, average, count, year, overview) {
-		this.src = src;
+		this.src = `https://www.themoviedb.org/t/p/original${src}`;
 		this.title = title;
 		this.average = average;
 		this.year = String(year).slice(0, 4);
@@ -92,7 +92,7 @@ class welcome {
 	}
 
 	render() {
-		welcomeWallpaper.style.background = `url("https://www.themoviedb.org/t/p/original${this.src}") 50% 20% / cover no-repeat`;
+		welcomeWallpaper.style.background = `url("${this.src}") 50% 20% / cover no-repeat`;
 
 		const element = document.createElement('div');
 
@@ -173,7 +173,7 @@ document.querySelector('.header__search').addEventListener('submit', (e) => {
 	welcomeIsTrue = true;
 	welcomeWallpaper.innerHTML = `
 		<div class="welcome__header">
-			THE MOST SUITABLE
+			<a href="#core">THE MOST SUITABLE</a>
  		</div>
 	`;
 	coreBody.innerHTML = '';

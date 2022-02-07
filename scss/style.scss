@@ -122,6 +122,7 @@ span {
 	left: 0;
 	z-index: 3;
 	width: 100vw;
+	pointer-events: none;
 
 	&__container {
 		height: 96px;
@@ -138,6 +139,7 @@ span {
 		width: 250px;
 		display: flex;
 		background: white;
+		pointer-events: auto;
 	}
 
 	&__input {
@@ -398,7 +400,7 @@ span {
 		font-size: 16px;
 		line-height: 24px;
 		text-align: justify;
-		transition: opacity 0.5s ease-in-out 0s;
+		transition: opacity 0.4s ease-in-out 0s;
 		opacity: 0;
 		overflow: hidden;
 	}

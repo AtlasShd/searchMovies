@@ -218,6 +218,7 @@ span {
   left: 0;
   z-index: 3;
   width: 100vw;
+  pointer-events: none;
 }
 
 .header__container {
@@ -243,6 +244,7 @@ span {
   display: -ms-flexbox;
   display: flex;
   background: white;
+  pointer-events: auto;
 }
 
 .header__input {
@@ -489,8 +491,8 @@ span {
   font-size: 16px;
   line-height: 24px;
   text-align: justify;
-  -webkit-transition: opacity 0.5s ease-in-out 0s;
-  transition: opacity 0.5s ease-in-out 0s;
+  -webkit-transition: opacity 0.4s ease-in-out 0s;
+  transition: opacity 0.4s ease-in-out 0s;
   opacity: 0;
   overflow: hidden;
 }
