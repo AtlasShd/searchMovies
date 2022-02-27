@@ -1,6 +1,6 @@
-[https://atlasshd.github.io/searchMovies/](Search Movies)
+[Search Movies](https://atlasshd.github.io/searchMovies/)
 
-[https://www.themoviedb.org/documentation/api](Used API)
+[Used API](https://www.themoviedb.org/documentation/api)
 
 ## Описание проекта
 Существуют API, которые позволяют получить информацию о фильмах. Например: OMDb RESTful API, The Movie Database (TMDB), a также другие подходящие API's. Задача состоит в умении получать информацию с API's и умело использовать её по запросу от пользователя.
