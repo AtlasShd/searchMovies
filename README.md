@@ -1,4 +1,4 @@
-[Search Movies](https://atlasshd.github.io/searchMovies/)
+# [Search Movies](https://atlasshd.github.io/searchMovies/)
 
 [Used API](https://www.themoviedb.org/documentation/api)
 
